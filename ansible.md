@@ -83,4 +83,29 @@ No support from redhat
 
 Installing Ansible
 
+****Script****
 
+#!/bin/bash
+
+# To verify whether pip is already installed for your preferred Python
+
+python3 -m pip -V   
+
+# If you see an error like No module named pip, you will need to install pip under your chosen Python interpreter before proceeding. This may mean installing an additional OS package (for example, python3-pip), or installing the latest pip directly from the Python Packaging Authority by running the following:
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py --user
+
+Installing Ansible
+
+# Use pip in your selected Python environment to install the full Ansible package for the current user
+
+python3 -m pip install --user ansible
+
+# You can install the minimal ansible-core package for the current user
+
+python3 -m pip install --user ansible-core
+
+# Alternately, you can install a specific version of ansible-core
+
+python3 -m pip install --user ansible-core==2.12.3
