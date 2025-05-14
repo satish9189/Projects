@@ -147,6 +147,25 @@ tasks:
   name: httpd
   state: started
 
+Sample Playbook
+
+name: "first playbook"
+hosts: all
+tasks: 
+- name: "Test Connectivity"
+- ping:
+
+Check Syntax of playbook
+
+ansible-playbook --syntax-check playbookname.yml # To do dry run
+ansible-playbook --check playbookname.yml
+ansible-playbook PathToplaybookname.yml # Run the playbook
+
+running ansible without playbook
+ansible
+
+running ansible with playbook
+ansible-playbook
 
   
   
