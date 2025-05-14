@@ -119,4 +119,36 @@ python3 -m pip install --upgrade --user ansible
 
 # NOTE If  SElinux enabled on remote nodes we also need to install libselinux-python package
 
+All tasks are executed sequential
+Each task processed one at a time
+Indentation extremly important
+No tabs in yaml file
+onlu use spaces
+Empty lines have no values
+File extension is usually .yml or .yaml
+
+No difference in double quotes or no quotes for task name
+
+
+Sample YAML
+
+name: sampleplaybook # Playbook name
+hosts: all or localhost # Where to run
+become: yes # Run as a different user
+become_user: root
+
+tasks:
+- name: Install apache
+  yum:  # run task module
+  name: httpd # Package name
+  state: present # What to do install
+- name: Second sample task
+  service:
+  name: httpd
+  state: started
+
+
+  
+  
+
 
