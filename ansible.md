@@ -109,3 +109,14 @@ python3 -m pip install --user ansible-core
 # Alternately, you can install a specific version of ansible-core
 
 python3 -m pip install --user ansible-core==2.12.3
+
+
+Upgrading Ansible
+# To upgrade an existing Ansible installation in this Python environment to the latest released version, simply add --upgrade to the command above
+
+python3 -m pip install --upgrade --user ansible
+
+
+# NOTE If  SElinux enabled on remote nodes we also need to install libselinux-python package
+
+
