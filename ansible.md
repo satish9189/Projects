@@ -66,3 +66,21 @@ Ruby language, Requires agentst to be installed on clients
 Ansible 
 agentless, well support and documentation, Easy installation 
 
+
+Ansible  is an open source software
+Ansible if free even though it owned by redhat
+Ansible is same across all the platforms
+The only difference is redhat provides additional product ansible tower and consulting or technical support for ansible
+
+Ansible tower which is a GUI based tool to manage Ansible automation
+Ansible tower is paid product 
+Manages multiple ansible servers for large enterprise environment 
+
+Ansible AWX
+Open source
+Free 
+No support from redhat
+
+Installing Ansible
+
+
