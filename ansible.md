@@ -1,178 +1,202 @@
-***Ansible***
 
-```Open spurce software provisioning and configuration management and application deployment tools enabling IaC.
-Free automation tool that can automate IT tasks on local machine whete it is running or remote machine
+# 📘 Ansible Guide
+
+## 🛠️ What is Ansible?
+
+```text
+Open source software provisioning, configuration management, and application deployment tool enabling Infrastructure as Code (IaC).
+A free automation tool that can automate IT tasks on local or remote machines.
 ```
 
-*Benifits*
-```
-Agentless
-Open source
-Avoid human errors
-increase productivity
-Secure (SSH)
-```
-*Terminologies*
-```
-control node or managed node
-Server which runs ansible application
+---
+
+## ✅ Benefits
+
+```text
+- Agentless
+- Open source
+- Avoids human errors
+- Increases productivity
+- Secure (uses SSH)
 ```
 
-*Modules*
-Modules is a command meant to be executed kn the client side
+---
 
-*Task*
-A task is a section that consists of a single procedure to be completed. A task can have multiple modules
+## 📌 Key Terminologies
 
-*Playbook*
-Automation file with step by step execution of multiple tasks
+- **Control Node / Managed Node**  
+  Server which runs the Ansible application
 
-*YAML*
-A playbook written jn YAML
+- **Modules**  
+  A module is a command meant to be executed on the client side
 
-*Inventory*
-File that has info about remote clients where tasks are executed
+- **Task**  
+  A task is a section that consists of a single procedure to be completed. A task can include multiple modules
 
-*Tag*
-A reference ot alias to a task
+- **Playbook**  
+  Automation file with step-by-step execution of multiple tasks
 
-*Variables*
-Variables are like containers that hold the defined value which can be used repetitively
+- **YAML**  
+  Playbooks are written in YAML syntax
 
-*Role*
-Splitting of playbook into smaller groups. Role let you automatically load related vars, files, tasks, handlers, and other ansible artifacys based on known file structure.
+- **Inventory**  
+  File that has information about remote clients where tasks are executed
 
+- **Tag**  
+  A reference or alias to a task
 
-*Ansible works*
-Each specific  Task  ansible is written through a module
+- **Variables**  
+  Containers that hold defined values which can be reused
 
-Multiple modules are written in sequential order 
-Multiple modules for related tasks is called a play
+- **Role**  
+  Splitting of playbooks into smaller groups. Roles let you automatically load related variables, files, tasks, handlers, and other Ansible artifacts based on a known file structure.
 
-All plays together  makes a playbook
+---
 
-*Commands*
-```ansible-playbook example.yml```
+## ⚙️ How Ansible Works
 
-To run independently
-```ansible myservers -m ping```
+- Each specific task is written using a module  
+- Multiple modules are written in sequential order  
+- A group of related modules forms a **Play**  
+- All plays together form a **Playbook**
 
-*Ansible config files*
-/etc/ansible/ansible.cfg
-/etc/ansible/hosts
-/etc/ansible/roles
+---
 
-*Automation tools*
-puppet and chef 
-Ruby language, Requires agentst to be installed on clients 
+## 💻 Useful Commands
 
-*Ansible*
-agentless, well support and documentation, Easy installation 
+```bash
+ansible-playbook example.yml         # Run a playbook
 
+ansible myservers -m ping            # Run a module independently
+```
 
-Ansible  is an open source software
-Ansible if free even though it owned by redhat
-Ansible is same across all the platforms
-The only difference is redhat provides additional product ansible tower and consulting or technical support for ansible
+---
 
-Ansible tower which is a GUI based tool to manage Ansible automation
-Ansible tower is paid product 
-Manages multiple ansible servers for large enterprise environment 
+## 📂 Important Ansible Configuration Files
 
-Ansible AWX
-Open source
-Free 
-No support from redhat
+```text
+/etc/ansible/ansible.cfg     # Main Ansible configuration file
+/etc/ansible/hosts           # Inventory file for hosts
+/etc/ansible/roles           # Directory for roles
+```
 
-Installing Ansible
+---
 
-****Script****
+## 🧰 Other Automation Tools
 
+- **Puppet and Chef**  
+  - Based on Ruby  
+  - Requires agents on client machines  
+
+- **Ansible**  
+  - Agentless  
+  - Easy installation  
+  - Excellent documentation and support
+
+---
+
+## 🏢 Ansible Ecosystem
+
+- **Ansible**
+  - Open source
+  - Free to use (owned by Red Hat)
+  - Same across platforms
+
+- **Ansible Tower**
+  - GUI-based tool to manage Ansible automation
+  - Paid product from Red Hat
+  - Used for large enterprise environments
+
+- **Ansible AWX**
+  - Open source version of Ansible Tower
+  - Free to use
+  - No official Red Hat support
+
+---
+
+## 📥 Installing Ansible
+
+### Script
+
+```bash
 #!/bin/bash
 
-# To verify whether pip is already installed for your preferred Python
-
+# Check if pip is installed
 python3 -m pip -V   
 
-# If you see an error like No module named pip, you will need to install pip under your chosen Python interpreter before proceeding. This may mean installing an additional OS package (for example, python3-pip), or installing the latest pip directly from the Python Packaging Authority by running the following:
-
+# If pip is not installed
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py --user
 
-Installing Ansible
-
-# Use pip in your selected Python environment to install the full Ansible package for the current user
-
+# Install Ansible
 python3 -m pip install --user ansible
 
-# You can install the minimal ansible-core package for the current user
-
+# OR install minimal version
 python3 -m pip install --user ansible-core
 
-# Alternately, you can install a specific version of ansible-core
-
+# OR install specific version
 python3 -m pip install --user ansible-core==2.12.3
 
-
-Upgrading Ansible
-# To upgrade an existing Ansible installation in this Python environment to the latest released version, simply add --upgrade to the command above
-
+# Upgrade Ansible
 python3 -m pip install --upgrade --user ansible
+```
 
+> 📌 If SELinux is enabled on remote nodes, install the `libselinux-python` package.
 
-# NOTE If  SElinux enabled on remote nodes we also need to install libselinux-python package
+---
 
-All tasks are executed sequential
-Each task processed one at a time
-Indentation extremly important
-No tabs in yaml file
-onlu use spaces
-Empty lines have no values
-File extension is usually .yml or .yaml
+## ⚠️ YAML Essentials
 
-No difference in double quotes or no quotes for task name
+- All tasks are executed sequentially
+- Indentation is extremely important
+- **Do not use tabs**, only use spaces
+- Empty lines have no value
+- File extension should be `.yml` or `.yaml`
+- Quotes around task names are optional
 
+---
 
-Sample YAML
+## 📄 Sample YAML
 
-name: sampleplaybook # Playbook name
-hosts: all or localhost # Where to run
-become: yes # Run as a different user
+```yaml
+name: sampleplaybook  # Playbook name
+hosts: all            # Where to run
+become: yes           # Run as a different user
 become_user: root
 
 tasks:
-- name: Install apache
-  yum:  # run task module
-  name: httpd # Package name
-  state: present # What to do install
-- name: Second sample task
-  service:
-  name: httpd
-  state: started
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: present
 
-Sample Playbook
+  - name: Start Apache service
+    service:
+      name: httpd
+      state: started
+```
 
-name: "first playbook"
+---
+
+## 📝 Sample Playbook
+
+```yaml
+name: "First Playbook"
 hosts: all
 tasks: 
-- name: "Test Connectivity"
-- ping:
+  - name: "Test Connectivity"
+    ping:
+```
 
-Check Syntax of playbook
+---
 
-ansible-playbook --syntax-check playbookname.yml # To do dry run
-ansible-playbook --check playbookname.yml
-ansible-playbook PathToplaybookname.yml # Run the playbook
+## 🔍 Syntax & Playbook Execution
 
-running ansible without playbook
-ansible
+```bash
+ansible-playbook --syntax-check playbook.yml   # Check syntax
+ansible-playbook --check playbook.yml          # Dry run
+ansible-playbook path/to/playbook.yml          # Run playbook
 
-running ansible with playbook
-ansible-playbook
-
-
-
-  
-  
-
-
+ansible             # Run Ansible without playbook
+ansible-playbook    # Run Ansible with playbook
+```
